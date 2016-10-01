@@ -1,0 +1,12 @@
+@(dataRows: Seq[com.github.tomdom.dummy.backend.DataRow])(implicit environment: play.api.Environment)
+
+@main("Data") {
+    <div>
+        @for(dataRow <- dataRows) {
+        <div>
+            @dataRow.id - @dataRow.name
+        </div>
+        }
+    </div>
+
+}
