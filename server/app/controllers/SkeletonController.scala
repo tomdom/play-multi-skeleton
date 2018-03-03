@@ -11,11 +11,12 @@ import scalatags.Text.all._
 import scalatags.Text.tags2.title
 
 @Singleton
-class SkeletonController @Inject()(dataServiceComponent: DataServiceComponent,
+class SkeletonController @Inject()(cc: ControllerComponents,
+                                   dataServiceComponent: DataServiceComponent,
                                    actorSystem: ActorSystem)(
     implicit exec: ExecutionContext,
     environment: play.api.Environment)
-    extends Controller {
+    extends AbstractController(cc) {
 
   def twirl = Action.async {
     dataServiceComponent.service
